@@ -64,6 +64,43 @@ remainder(divisor = 11, num = 5) # If designate argument values by name, the ord
 remainder(7, div = 3) #partially match arguments
 
 args(remainder) # show the arguments for this function 
-#test
+
 ```
-  dfdsfsdf
+## evaluate data--alternative way to do samething 
+
+if a function is passed into the
+"func" argument and some data (like a vector) is passed into the dat argument
+the evaluate() function will return the result of dat being passed as an
+argument to func.\
+
+```{r}
+
+
+# Hints: This exercise is a little tricky so I'll provide a few example of how
+# evaluate() should act:
+#    1. evaluate(sum, c(2, 4, 6)) should evaluate to 12
+#    2. evaluate(median, c(7, 40, 9)) should evaluate to 9
+#    3. evaluate(floor, 11.1) should evaluate to 11
+
+evaluate <- function(func, dat){
+   func(dat)
+}
+
+evaluate(sum,c(2,4,6))
+
+sum(c(2,4,6))
+
+evaluate(sd,c(1.4, 3.6,7.9, 8.8)) #std for vector
+
+evaluate(function(x){x+1},6) # function(x){x+1}=function
+
+#using evaluate() along with an anonymous function to return the first element of the
+#vector c(8, 4, 0).
+
+evaluate(function(x){
+  x[1]
+},c(8,4,0)
+)      
+
+```
+
