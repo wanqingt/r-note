@@ -1,0 +1,25 @@
+---
+title: "apply family"
+author: "Wanqing Tian"
+date: "January 15, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+#lapply
+
+##read data
+```{r}
+getwd()
+flags <- read.table("./data/flags.txt", header = TRUE)
+head(flags)
+
+```
+
