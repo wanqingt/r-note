@@ -13,13 +13,30 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
-#lapply
+#lapply- is for list
 
-##read data
+##read data and view data
 ```{r}
 getwd()
 flags <- read.table("./data/flags.txt", header = TRUE)
 head(flags)
+dim(flags)
 
 ```
+
+use lapply function to loop (class) each column
+
+```{r}
+class(flags)
+cls_list<- lapply(flags, class) 
+cls_list
+class(cls_list) #return list
+
+```
+cls_list can be simplified to a character vector. To do this manually\
+
+```{r}
+as.character(cls_list)
+```
+
 
