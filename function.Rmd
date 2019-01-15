@@ -119,6 +119,8 @@ evaluate(function(x){
 ```{r}
 paste("Programming", "is", "fun!")
 
+paste("a", "b", sep = ":")
+
 # For example the expression `telegram("Good", "morning")` should evaluate to:
 # "START Good morning STOP"
 
@@ -143,5 +145,32 @@ mad_libs <- function(...){
   paste("News from", place, "today where", adjective, "students took to the streets in protest of the new", noun, "being installed on campus.")
 }
 mad_libs(place="home", adjective="nice", noun="me")
+```
+## binory operators
+
+```{r}
+
+"%mult_add_one%" <- function(left, right){ # Notice the quotation marks!
+   left * right + 1
+ }
+4 %mult_add_one% 5  
+
+
+```
+
+binory operators with paste function
+
+```{r}
+# Write your own binary operator below from absolute scratch! Your binary
+# operator must be called %p% so that the expression:
+#
+#       "Good" %p% "job!"
+#
+# will evaluate to: "Good job!"
+
+"%p%" <- function(left,right){ # Remember to add arguments!
+ paste(left,right)
+}
+"Good"%p%"job!"
 ```
 
