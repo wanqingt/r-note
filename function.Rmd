@@ -37,7 +37,7 @@ ab <- function(a,b){
 ab(9)
 ```
 
-##Creat a mean function
+##Create a mean function
 
 ```{r}
 
@@ -101,6 +101,16 @@ evaluate(function(x){
   x[1]
 },c(8,4,0)
 )      
+
+evaluate(function(x){
+  x[3]
+},c(8,4,0))
+                                #same,  reture last element of vector
+evaluate(function(x){
+  x[length(x)]
+},c(8,4,0))
+
+
 
 ```
 
