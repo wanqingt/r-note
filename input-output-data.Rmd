@@ -11,13 +11,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #TXT file
 
-```{r}
+read table from subfile
 
+```{r}
+flags <- read.table("./data/flags.txt", header = TRUE) 
 ```
 
-output data
+output data to alternative location you want
 ```{r}
 
-#write.table(flags,file="C:/Users/wanqi/OneDrive/RR/r-note/data/flags.txt")
+write.table(flags,file="C:/Users/wanqi/OneDrive/RR/r-note/data/flags.txt")
 ```
 
