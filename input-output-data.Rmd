@@ -1,0 +1,23 @@
+---
+title: "input-output data"
+author: "Wanqing Tian"
+date: "January 15, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#TXT file
+
+```{r}
+
+```
+
+output data
+```{r}
+
+#write.table(flags,file="C:/Users/wanqi/OneDrive/RR/r-note/data/flags.txt")
+```
+
