@@ -201,10 +201,12 @@ $(document).ready(function () {
 <pre><code>## -- Conflicts ----------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<div id="lapply--is-for-list" class="section level1">
-<h1>lapply- is for list</h1>
-<div id="read-data-and-view-data" class="section level2">
-<h2>read data and view data</h2>
+<div id="lapply--is-for-list-input-list-output-list" class="section level1">
+<h1>lapply- is for list (input list, output list)</h1>
+<p>takes a list as input<br />
+applies a function to each element of the list<br />
+then returns a list of the same length as the original one.<br />
+##read data and view data</p>
 <pre class="r"><code>getwd()</code></pre>
 <pre><code>## [1] &quot;C:/Users/wanqi/OneDrive/RR/r-note&quot;</code></pre>
 <pre class="r"><code>flags &lt;- read.table(&quot;./data/flags.txt&quot;, header = TRUE)
@@ -343,6 +345,110 @@ cls_list</code></pre>
 ## [15] &quot;integer&quot; &quot;integer&quot; &quot;integer&quot; &quot;factor&quot;  &quot;integer&quot; &quot;integer&quot; &quot;integer&quot;
 ## [22] &quot;integer&quot; &quot;integer&quot; &quot;integer&quot; &quot;integer&quot; &quot;integer&quot; &quot;integer&quot; &quot;integer&quot;
 ## [29] &quot;factor&quot;  &quot;factor&quot;</code></pre>
+</div>
+<div id="sapply-input-list-output-vector-or-matrix" class="section level1">
+<h1>sapply (input list, output vector or matrix)</h1>
+<p>sapply() allows you to automate this process by calling lapply() behind the scenes<br />
+if the result is a list where every element is of length one, then sapply() returns a vector.<br />
+If the result is a list where every element is a vector of the same length (&gt; 1), sapply() returns a matrix.<br />
+</p>
+<pre class="r"><code>cls_vect &lt;- sapply(flags,class)
+cls_vect</code></pre>
+<pre><code>##       name   landmass       zone       area population   language 
+##   &quot;factor&quot;  &quot;integer&quot;  &quot;integer&quot;  &quot;integer&quot;  &quot;integer&quot;  &quot;integer&quot; 
+##   religion       bars    stripes    colours        red      green 
+##  &quot;integer&quot;  &quot;integer&quot;  &quot;integer&quot;  &quot;integer&quot;  &quot;integer&quot;  &quot;integer&quot; 
+##       blue       gold      white      black     orange    mainhue 
+##  &quot;integer&quot;  &quot;integer&quot;  &quot;integer&quot;  &quot;integer&quot;  &quot;integer&quot;   &quot;factor&quot; 
+##    circles    crosses   saltires   quarters   sunstars   crescent 
+##  &quot;integer&quot;  &quot;integer&quot;  &quot;integer&quot;  &quot;integer&quot;  &quot;integer&quot;  &quot;integer&quot; 
+##   triangle       icon    animate       text    topleft   botright 
+##  &quot;integer&quot;  &quot;integer&quot;  &quot;integer&quot;  &quot;integer&quot;   &quot;factor&quot;   &quot;factor&quot;</code></pre>
+<pre class="r"><code>class(cls_vect)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>create dataset only contain color</p>
+<pre class="r"><code>sum(flags$orange)</code></pre>
+<pre><code>## [1] 26</code></pre>
+<pre class="r"><code>flag_colors &lt;- flags[, 11:17]
+
+head(flag_colors)</code></pre>
+<pre><code>##   red green blue gold white black orange
+## 1   1     1    0    1     1     1      0
+## 2   1     0    0    1     0     1      0
+## 3   1     1    0    0     1     0      0
+## 4   1     0    1    1     1     0      1
+## 5   1     0    1    1     0     0      0
+## 6   1     0    0    1     0     1      0</code></pre>
+<p>sum of each column of flag_colors, call the lapply() function with two arguments<br />
+</p>
+<pre class="r"><code>lapply(flag_colors,sum)</code></pre>
+<pre><code>## $red
+## [1] 153
+## 
+## $green
+## [1] 91
+## 
+## $blue
+## [1] 99
+## 
+## $gold
+## [1] 91
+## 
+## $white
+## [1] 146
+## 
+## $black
+## [1] 52
+## 
+## $orange
+## [1] 26</code></pre>
+<p>since lapply() always returns a list<br />
+result can be simplified to a vector by calling sapply() instead of lapply()<br />
+</p>
+<pre class="r"><code>sapply(flag_colors,sum)</code></pre>
+<pre><code>##    red  green   blue   gold  white  black orange 
+##    153     91     99     91    146     52     26</code></pre>
+<p>sapply mean</p>
+<pre class="r"><code>sapply(flag_colors,mean)</code></pre>
+<pre><code>##       red     green      blue      gold     white     black    orange 
+## 0.7886598 0.4690722 0.5103093 0.4690722 0.7525773 0.2680412 0.1340206</code></pre>
+<div id="sapplylength-1-example" class="section level2">
+<h2>sapply—length &gt;1 example</h2>
+<p>sapply() has been able to simplify the result to vector. That’s because each element of the list returned by lapply() was a vector of length =1.<br />
+Recall that sapply() instead returns a matrix when each element of the list returned by lapply() is a vector of the same length (&gt; 1)<br />
+</p>
+<pre class="r"><code>flag_shapes &lt;- flags[, 19:23]
+
+head(flag_shapes)</code></pre>
+<pre><code>##   circles crosses saltires quarters sunstars
+## 1       0       0        0        0        1
+## 2       0       0        0        0        1
+## 3       0       0        0        0        1
+## 4       0       0        0        0        0
+## 5       0       0        0        0        0
+## 6       0       0        0        0        1</code></pre>
+<pre class="r"><code>lapply(flag_shapes,range) #list contain two vaule, because length &gt;1</code></pre>
+<pre><code>## $circles
+## [1] 0 4
+## 
+## $crosses
+## [1] 0 2
+## 
+## $saltires
+## [1] 0 1
+## 
+## $quarters
+## [1] 0 4
+## 
+## $sunstars
+## [1]  0 50</code></pre>
+<pre class="r"><code>shape_mat &lt;- sapply(flag_shapes,range)  #return martix because length &gt;1
+shape_mat</code></pre>
+<pre><code>##      circles crosses saltires quarters sunstars
+## [1,]       0       0        0        0        0
+## [2,]       4       2        1        4       50</code></pre>
+<pre class="r"><code>class(shape_mat) #return matrix</code></pre>
+<pre><code>## [1] &quot;matrix&quot;</code></pre>
 </div>
 </div>
 

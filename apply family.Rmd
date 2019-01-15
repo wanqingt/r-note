@@ -1,6 +1,6 @@
 ---
 title: "apply family"
-author: "Wanqing Tian"
+author: "T"
 date: "January 15, 2019"
 output: html_document
 ---
@@ -13,8 +13,11 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
-#lapply- is for list
-
+#lapply- is for list (input list, output list)
+takes a list as input\
+applies a function to each element of the list\
+then returns a list of the same length as the original one.\
+ 
 ##read data and view data
 ```{r}
 getwd()
@@ -39,4 +42,63 @@ cls_list can be simplified to a character vector. To do this manually\
 as.character(cls_list)
 ```
 
+#sapply (input list, output vector or matrix)
+
+sapply() allows you to automate this process by calling lapply() behind the scenes\
+
+if the result is a list where every element is of length
+one, then sapply() returns a vector.\
+
+If the result is a list where
+every element is a vector of the same length (> 1), sapply() returns a matrix.\
+
+```{r}
+cls_vect <- sapply(flags,class)
+cls_vect
+class(cls_vect)
+```
+
+create dataset only contain color
+```{r}
+sum(flags$orange)
+
+flag_colors <- flags[, 11:17]
+
+head(flag_colors)
+```
+sum of each column of flag_colors, call the lapply() function with two arguments\
+
+```{r}
+lapply(flag_colors,sum)
+```
+since lapply() always returns a list\
+
+result can be simplified to a vector by calling sapply() instead of lapply()\
+
+```{r}
+sapply(flag_colors,sum)
+```
+sapply mean
+
+```{r}
+sapply(flag_colors,mean)
+```
+##sapply---length >1 example
+
+sapply() has been able to simplify the result to vector. That's because each element of the list returned by lapply() was a vector of length =1.\
+
+Recall that sapply() instead returns a matrix when each element of the list returned by lapply() is a vector of the same length (> 1)\
+
+```{r}
+flag_shapes <- flags[, 19:23]
+
+head(flag_shapes)
+
+lapply(flag_shapes,range) #list contain two vaule, because length >1
+
+shape_mat <- sapply(flag_shapes,range)  #return martix because length >1
+shape_mat
+
+class(shape_mat) #return matrix
+```
 
