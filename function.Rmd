@@ -172,5 +172,7 @@ binory operators with paste function
  paste(left,right)
 }
 "Good"%p%"job!"
+
+"I" %p% "love" %p% "R!"
 ```
 
