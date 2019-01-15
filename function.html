@@ -290,6 +290,61 @@ evaluate(function(x){
 },c(8,4,0))</code></pre>
 <pre><code>## [1] 0</code></pre>
 </div>
+<div id="paste-function-same-as-sql-concat-function" class="section level2">
+<h2>paste function (same as SQL CONCAT() function)</h2>
+<pre class="r"><code>paste(&quot;Programming&quot;, &quot;is&quot;, &quot;fun!&quot;)</code></pre>
+<pre><code>## [1] &quot;Programming is fun!&quot;</code></pre>
+<pre class="r"><code>paste(&quot;a&quot;, &quot;b&quot;, sep = &quot;:&quot;)</code></pre>
+<pre><code>## [1] &quot;a:b&quot;</code></pre>
+<pre class="r"><code># For example the expression `telegram(&quot;Good&quot;, &quot;morning&quot;)` should evaluate to:
+# &quot;START Good morning STOP&quot;
+
+telegram &lt;- function(...){
+  paste(&quot;START&quot;,...,&quot;STOP&quot;)
+}
+
+telegram(&quot;A&quot;,&quot;Z&quot;)</code></pre>
+<pre><code>## [1] &quot;START A Z STOP&quot;</code></pre>
+<pre class="r"><code>telegram(&quot;A&quot;,&quot;z&quot;,&quot;aaa&quot;,&quot;bbb&quot;)   #... =any strings you want</code></pre>
+<pre><code>## [1] &quot;START A z aaa bbb STOP&quot;</code></pre>
+<pre class="r"><code>mad_libs &lt;- function(...){
+  # Do your argument unpacking here!
+  args &lt;- list(...)
+  place &lt;- args[[&quot;place&quot;]]
+  adjective &lt;- args[[&quot;adjective&quot;]]
+  noun &lt;- args[[&quot;noun&quot;]]
+  
+  # Don't modify any code below this comment.
+  # Notice the variables you'll need to create in order for the code below to
+  # be functional!
+  paste(&quot;News from&quot;, place, &quot;today where&quot;, adjective, &quot;students took to the streets in protest of the new&quot;, noun, &quot;being installed on campus.&quot;)
+}
+mad_libs(place=&quot;home&quot;, adjective=&quot;nice&quot;, noun=&quot;me&quot;)</code></pre>
+<pre><code>## [1] &quot;News from home today where nice students took to the streets in protest of the new me being installed on campus.&quot;</code></pre>
+</div>
+<div id="binory-operators" class="section level2">
+<h2>binory operators</h2>
+<pre class="r"><code>&quot;%mult_add_one%&quot; &lt;- function(left, right){ # Notice the quotation marks!
+   left * right + 1
+ }
+4 %mult_add_one% 5  </code></pre>
+<pre><code>## [1] 21</code></pre>
+<p>binory operators with paste function</p>
+<pre class="r"><code># Write your own binary operator below from absolute scratch! Your binary
+# operator must be called %p% so that the expression:
+#
+#       &quot;Good&quot; %p% &quot;job!&quot;
+#
+# will evaluate to: &quot;Good job!&quot;
+
+&quot;%p%&quot; &lt;- function(left,right){ # Remember to add arguments!
+ paste(left,right)
+}
+&quot;Good&quot;%p%&quot;job!&quot;</code></pre>
+<pre><code>## [1] &quot;Good job!&quot;</code></pre>
+<pre class="r"><code>&quot;I&quot; %p% &quot;love&quot; %p% &quot;R!&quot;</code></pre>
+<pre><code>## [1] &quot;I love R!&quot;</code></pre>
+</div>
 </div>
 
 
