@@ -1,11 +1,68 @@
 ---
 title: "function"
-author: "Wanqing Tian"
+author: "T"
 date: "January 15, 2019"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Function
+
+##Basic function
+```{r}
+x1 <- function(a){
+  a*10
+}
+x1(9)
+
+x2 <- function(b){
+  b
+}
+x2('Just return')
+
+x2 # reture function code
+```
+
+## More arguments (parameter)
+
+```{r}
+ab <- function(a,b){
+  a*10
+
+} 
+
+ab(9)
+```
+
+##Creat a mean function
+
+```{r}
+
+my_mean <- function(my_vector) {
+  my_vector=sum(my_vector)/length(my_vector) 
+}
+mm <- my_mean(c(2,3,4))
+mm #turn value
+mean(c(2,3,4))
+```
+## argument with value
+
+```{r}
+remainder <- function(num, divisor = 2) {
+  num%%divisor
+   
+}
+remainder(3)
+
+remainder(11,5) # give value 5 to divisor and arguments have been matched
+
+remainder(divisor = 11, num = 5) # If designate argument values by name, the ordering of the argument will not that impoart
+
+remainder(7, div = 3) #partially match arguments
+
+args(remainder) # show the arguments for this function 
 ```
 
