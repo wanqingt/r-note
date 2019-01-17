@@ -1,0 +1,16 @@
+---
+title: "loop"
+author: "T"
+date: "`r Sys.Data()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#if 
+```{r}
+
+```
+
