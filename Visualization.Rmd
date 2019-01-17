@@ -9,9 +9,10 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#Out put pdf doc
+#Output pdf doc
 ```{r}
 #pdf(file.path(graph.dir, "A.pdf"))
 #dev.off()
+
 ```
 
