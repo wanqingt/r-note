@@ -1,7 +1,7 @@
 ---
 title: "input-output data"
-author: "Wanqing Tian"
-date: "January 15, 2019"
+author: "T"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
@@ -22,4 +22,12 @@ output data to alternative location you want
 
 write.table(flags,file="C:/Users/wanqi/OneDrive/RR/r-note/data/flags.txt")
 ```
+
+
+#seting subfile for saving data
+
+```{r}
+if(!file.exists("./rdata")){dir.create("./rdata")}
+```
+
 
