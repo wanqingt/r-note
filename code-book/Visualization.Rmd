@@ -1,0 +1,18 @@
+---
+title: "Visualization"
+author: "T"
+date: "`r Sys.Data()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Output pdf doc
+```{r}
+#pdf(file.path(graph.dir, "A.pdf"))
+#dev.off()
+
+```
+

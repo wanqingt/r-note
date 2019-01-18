@@ -1,7 +1,7 @@
 ---
 title: "loop"
 author: "T"
-date: "`r Sys.Data()`"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
@@ -29,7 +29,7 @@ if (conditon){
 
 ```{r}
 #Ex.1
-
+x<- 10
 if (x>5){
          y<-1 #TRUE
 } else{
@@ -98,7 +98,7 @@ Begin by testing a condition. If it is true, then execute the loop body.\
 
 Once the loop body is executed, the condition is tested again, and so forth.\
 
-
+while(condtion) statement\
 
 ```{r}
 #Ex.1
@@ -109,8 +109,11 @@ count <- count + 1
 }
 
 #EX.2
-
-
+i <- 5
+while (i>0) {
+  print("loop")
+  i<- i-1   # for stop loop
+}
 
 ```
 
@@ -130,4 +133,5 @@ z <- z - 1
 }
 
 ```
+
 
