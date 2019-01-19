@@ -56,9 +56,10 @@ dplyr::mutate(price_per_carat = price / carat)
 ```
 
 
-%T>%
+# %T>%
 ```{r}
 library(diagram)
+
 
 ```
 
