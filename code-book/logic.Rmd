@@ -1,0 +1,21 @@
+---
+title: "logic"
+author: "T"
+date: "January 20, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# %in%
+
+EX: a %in% table
+Means: is a in table ?
+
+```{r}
+table <- c(1,2,3)
+3 %in% table
+```
+
