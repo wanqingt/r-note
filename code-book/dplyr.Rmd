@@ -19,4 +19,14 @@ a <- data.frame(a = 1:2, b = 3:4, c = 5:6)
 b <- data.frame(a = 7:8, b = 2:3, c = 3:4, d = 8:9)
 bind_rows(a, b)
 ```
+# if_else
+
+if_else(condition, true, false, missing=NULL)
+
+```{r}
+library(dplyr)
+x <- c(-2:3, NA)
+if_else(x < 0, NA_integer_, x)
+if_else(x < 0, "negative", "positive")
+```
 
