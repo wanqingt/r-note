@@ -64,6 +64,16 @@ library(diagram)
 ```
 
 
+# %<>%
 
+a %<>% b %>c
+a to b STOP
+b to c 
+a to c
 
+alternative
+
+a %>% b
+b %>% c
+a %>% c
 
