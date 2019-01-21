@@ -30,3 +30,15 @@ if_else(x < 0, NA_integer_, x)
 if_else(x < 0, "negative", "positive")
 ```
 
+#case_when
+
+```{r}
+x <- 1:50
+case_when(
+  x %% 35 == 0 ~ "fizz buzz",
+  x %% 5 == 0 ~ "fizz",
+  x %% 7 == 0 ~ "buzz",
+  TRUE ~ as.character(x)
+)
+```
+
