@@ -19,3 +19,32 @@ table <- c(1,2,3)
 3 %in% table
 ```
 
+# union
+
+```{r}
+x <- 1:5
+y <- 2:5
+union(x,y)
+
+x1 <- c("a","b","c")
+y1 <- c(1,2,"c")
+union(x1,y1)
+```
+
+#intersect
+
+```{r}
+x <- 1:5
+y <- 2:5
+intersect(x,y)
+```
+
+#setdiff
+
+```{r}
+x <- 1:5
+y <- 2:5
+setdiff(x,y) #just choice x 
+setdiff(y,x) #just choice y
+```
+
