@@ -28,6 +28,8 @@ library(dplyr)
 x <- c(-2:3, NA)
 if_else(x < 0, NA_integer_, x)
 if_else(x < 0, "negative", "positive")
+
+if_else(is.na(x),"na","number")
 ```
 
 #case_when
@@ -40,5 +42,86 @@ case_when(
   x %% 7 == 0 ~ "buzz",
   TRUE ~ as.character(x)
 )
+```
+
+#left_join
+
+```{r}
+library(tidyverse) ## dplyr provides the join functions
+
+superheroes <- "
+    name, alignment, gender,         publisher
+ Magneto,       bad,   male,            Marvel
+   Storm,      good, female,            Marvel
+Mystique,       bad, female,            Marvel
+  Batman,      good,   male,                DC
+   Joker,       bad,   male,                DC
+Catwoman,       bad, female,                DC
+ Hellboy,      good,   male, Dark Horse Comics
+"
+superheroes <- read_csv(superheroes, skip = 1)
+
+publishers <- "
+  publisher, yr_founded
+         DC,       1934
+     Marvel,       1939
+      Image,       1992
+"
+publishers <- read_csv(publishers, skip = 1)
+
+superheroes
+
+publishers
+
+left_join(superheroes,publishers)
+```
+
+#record_factor
+
+```{r}
+df <- read.table(header = T, text = "
+number countrycode event
+1713         ESP 110mh
+1009         NED    HJ
+536          BLR    LJ
+2882         FRA 1500m
+509          EST    LJ
+2449         BEL    PV
+1022         EST    HJ
+2530         USA    JT
+2714         CUB    JT
+1236         HUN  400m
+238          BLR  100m
+2518         USA    JT
+1575         FRA 110mh
+615          JPN    LJ
+1144         GER    HJ
+596          CAN    LJ
+2477         HUN    JT
+1046         GER    HJ
+2501         FIN    DT
+2176         KAZ    PV
+")
+
+df$eventtype <- recode_factor(df$event, `100m` = "Runs", `400m` = "Runs", 
+                              `110mh` = "Runs", `1500m` = "Runs", 
+                              DT = "Throws", SP = "Throws", JT = "Throws",
+                              LJ = "Jumps", HJ = "Jumps", PV = "Jumps")
+
+# or inside a mutate command
+df %>% 
+  mutate(eventtype = recode_factor(event, `100m` = "Runs", `400m` = "Runs", 
+                                   `110mh` = "Runs", `1500m` = "Runs", 
+                                   DT = "Throws", SP = "Throws", JT = "Throws",
+                                   LJ = "Jumps", HJ = "Jumps", PV = "Jumps"))
+
+df
+```
+
+#group_by
+
+```{r}
+by_day <- group_by(flights, year, month, day)
+summarize(by_day, delay = mean(dep_delay, na.rm = TRUE))
 ```
 

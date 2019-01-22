@@ -1,0 +1,21 @@
+---
+title: "table"
+author: "T"
+date: "January 21, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#table
+
+ktable just for make nicely formatted tables
+
+```{r}
+
+#table(data$x,data$y)
+#Kable(table(data$x,data$y))
+```
+

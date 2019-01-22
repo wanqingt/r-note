@@ -1,0 +1,25 @@
+---
+title: "strings"
+author: "T"
+date: "January 21, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#grepl 
+
+matches to any of a list of character strings
+
+```{r}
+data <- data.frame(animal = sample(c("cat","dog","bird", 'doggy','kittycat'), 50, replace = T))
+data
+matches <- c("cat","dog")
+
+data$keep <- ifelse(data$animal %in% matches, "Keep", "Discard")
+ifelse(grepl("dog|cat", data$animal), "keep", "discard")
+                    
+```
+
