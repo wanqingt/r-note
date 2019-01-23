@@ -13,26 +13,28 @@ Overall work flow:
 3. Other code by my own or online open resource
 
 
- 
+
 -/html/
-1.Standardized_workflow_for_rmarkdown.Rmd
-2.Visulization.Rmd
-3.vapply-tapply.Rmd
-4.lapply-sapply.Rmd
-5.input_outout_data.Rmd
-6.function.Rmd
+
+1. Standardized_workflow_for_rmarkdown.Rmd
+2. Visulization.Rmd
+3. vapply-tapply.Rmd
+4. lapply-sapply.Rmd
+5. input_outout_data.Rmd
+6. function.Rmd
 
 -/code-book/
-1.Standardized_workflow_for_rmarkdown.Rmd
-2.Visulization.Rmd
-3.vapply-tapply.Rmd
-4.lapply-sapply.Rmd
-5.input_outout_data.Rmd
-6.function.Rmd
+
+1. Standardized_workflow_for_rmarkdown.Rmd
+2. Visulization.Rmd
+3. vapply-tapply.Rmd
+4. lapply-sapply.Rmd
+5. input_outout_data.Rmd
+6. function.Rmd
 
 
 -/graph/
- test for atom
+
 
 -/rdata/
 
