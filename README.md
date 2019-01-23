@@ -23,7 +23,7 @@ Overall work flow:
 5. input_outout_data.Rmd
 6. function.Rmd
 
--/code-book/
+-*/code-book/*
 
 1. Standardized_workflow_for_rmarkdown.Rmd
 2. Visulization.Rmd
