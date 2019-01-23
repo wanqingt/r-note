@@ -1,6 +1,6 @@
 # r-note
 
-Reorginze the code for R\
+*Reorganize the code for R*
 
 Overall work flow:
 
