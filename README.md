@@ -1,10 +1,10 @@
 # r-note
 
-*Reorganize the code for R*
+Reorganize the code for R
 
 Overall work flow:
 
--/reference/
+-*/reference/*
 
 1. Some code from previous study in 'Data Science' course of coursera
 
@@ -14,7 +14,7 @@ Overall work flow:
 
 
 
--/html/
+-*/html/*
 
 1. Standardized_workflow_for_rmarkdown.Rmd
 2. Visulization.Rmd
@@ -33,9 +33,9 @@ Overall work flow:
 6. function.Rmd
 
 
--/graph/
+-*/graph/*
 
 
--/rdata/
+-*/rdata/*
 
 1. flags.txt from swirl
