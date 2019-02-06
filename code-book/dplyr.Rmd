@@ -124,4 +124,20 @@ df
 by_day <- group_by(flights, year, month, day)
 summarize(by_day, delay = mean(dep_delay, na.rm = TRUE))
 ```
+gather and spreed
+```{r}
+
+data <- data.frame(
+  time = as.Date('2018-10-12') + 0:9,
+  X = rnorm(10, 0, 1),
+  Y = rnorm(10, 0, 2),
+  Z = rnorm(10, 0, 4)
+)
+
+data
+data2 <- gather(data, category, value, X, Y, Z)
+data2
+
+spread(data2, category, value)
+```
 
