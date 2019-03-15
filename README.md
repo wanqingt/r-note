@@ -48,3 +48,12 @@
 -*/rdata/*
 
 1. flags.txt from swirl
+
+-*/url/*
+
+purrr
+https://www.r-bloggers.com/lesser-known-purrr-tricks/
+
+broom
+
+https://cran.r-project.org/web/packages/broom/vignettes/broom.html
